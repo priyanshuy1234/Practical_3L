@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/style.css">
+    <title>Game Details</title>
+</head>
+<body>
+    <%- include('../partials/header') %>
+    
+    <div class="container mt-5">
+        <h1><%= game.gameName %></h1>
+        <p><strong>Number of Players:</strong> <%= game.numberOfPlayer %></p>
+        <p><strong>Game Duration:</strong> <%= game.gameDuration %> minutes</p>
+        <p><strong>Platform:</strong> <%= game.platform %></p>
+        <p><strong>Created By:</strong> <%= game.user.username %></p>
+        
+        <a href="/games/<%= game._id %>/edit" class="btn btn-warning">Edit Game</a>
+        <form action="/games/<%= game._id %>/delete" method="POST" style="display:inline;">
+            <button type="submit" class="btn btn-danger">Delete Game</button>
+        </form>
+        <a href="/games" class="btn btn-secondary">Back to Games</a>
+    </div>
+
+    <%- include('../partials/footer') %>
+</body>
+</html>
